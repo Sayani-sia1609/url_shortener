@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener - Make Links Shorter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <div class="icon">🔗</div>
+                <h1>URL Shortener</h1>
+                <p class="subtitle">Transform long URLs into short, shareable links</p>
+            </div>
+
+            {% if error %}
+                <div class="alert error">
+                    <span>❌</span> {{ error }}
+                </div>
+            {% endif %}
+
+            <form method="POST" id="urlForm">
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        name="url" 
+                        id="urlInput"
+                        placeholder="https://example.com/very/long/url" 
+                        required
+                    >
+                    <button type="submit" class="btn-primary">
+                        <span class="btn-text">Shorten URL</span>
+                        <span class="btn-icon">✨</span>
+                    </button>
+                </div>
+            </form>
+
+            {% if short_url %}
+                <div class="result">
+                    <div class="success-animation">✓</div>
+                    <h3>Your short URL is ready!</h3>
+                    <div class="url-box">
+                        <input type="text" id="shortUrl" value="{{ short_url }}" readonly>
+                        <button class="btn-copy" onclick="copyToClipboard()">
+                            <span id="copyIcon">📋</span>
+                            <span id="copyText">Copy</span>
+                        </button>
+                    </div>
+                    <div class="original-url">
+                        <small>Original: {{ original_url[:50] }}{% if original_url|length > 50 %}...{% endif %}</small>
+                    </div>
+                </div>
+            {% endif %}
+
+            <div class="features">
+                <div class="feature">
+                    <span class="feature-icon">⚡</span>
+                    <span>Instant</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🔒</span>
+                    <span>Secure</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🎯</span>
+                    <span>Reliable</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard() {
+            const urlInput = document.getElementById('shortUrl');
+            urlInput.select();
+            urlInput.setSelectionRange(0, 99999);
+            document.execCommand('copy');
+            
+            const copyIcon = document.getElementById('copyIcon');
+            const copyText = document.getElementById('copyText');
+            copyIcon.textContent = '✓';
+            copyText.textContent = 'Copied!';
+            
+            setTimeout(() => {
+                copyIcon.textContent = '📋';
+                copyText.textContent = 'Copy';
+            }, 2000);
+        }
+
+        // Add animation on form submit
+        document.getElementById('urlForm').addEventListener('submit', function(e) {
+            const btn = this.querySelector('.btn-primary');
+            btn.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                btn.style.transform = 'scale(1)';
+            }, 200);
+        });
+    </script>
+</body>
+</html>
