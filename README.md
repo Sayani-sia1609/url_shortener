@@ -33,19 +33,6 @@ This project demonstrates:
 - **Frontend**  HTML,CSS
 ---
 
-## 📂 Project Structure
-
-```text
-URL_shortener/
-│
-├── main.py              # Main Flask application
-├── db.py                # Database setup (automated)
-├── requirements.txt     # Dependencies
-└── README.md
-```
-
----
-
 ## ⚙️ Automated Database Setup
 
 The database and table are **created automatically** when the setup script runs.
@@ -129,6 +116,7 @@ http://localhost:5000
 
   ---
   Built with ❤️ by Sayani Das
+
 
 
 
