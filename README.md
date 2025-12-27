@@ -1,4 +1,4 @@
-# 🔗 URL Shortener 
+<img width="1893" height="944" alt="image" src="https://github.com/user-attachments/assets/0c1eec83-8267-4458-8755-54517550808f" /># 🔗 URL Shortener 
 
 A simple and clean URL Shortener web application built using **Flask** and **MySQL**.  
 Users can submit a long URL and receive a short URL that redirects to the original link.
@@ -10,7 +10,8 @@ This project demonstrates:
 - Real HTTP redirection
 
 ---
-
+# Peoject Live at https://url-shortener-nine-ruddy.vercel.app/
+---
 ## 🚀 Features
 
 - 🔹 Shorten long URLs
@@ -128,3 +129,4 @@ http://localhost:5000
 
   ---
   Built with ❤️ by Sayani Das
+
