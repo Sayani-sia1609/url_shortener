@@ -1,5 +1,5 @@
 from flask import Flask, request, redirect, render_template
-import re
+from urllib.parse import urlparse
 import random
 import mysql.connector
 app=Flask(__name__)
@@ -22,14 +22,12 @@ def get_db_connection():
     )
     return connection
 
-url_pattern = re.compile(               
-            r'^(https?:\/\/)?'  # http:// or https://
-            r'(([A-Za-z0-9-]+\.)+[A-Za-z]{2,6})'  # domain...
-            r'(:\d+)?'  # optional port
-            r'(\/[A-Za-z0-9\-._~:\/?#[\]@!$&\'()*+,;=]*)?$'  # path
-        )
+
+        
 def is_valid_url(url):
-    return re.match(url_pattern, url) is not None
+    parsed_url = urlparse(url)
+    return all([parsed_url.scheme, parsed_url.netloc])
+
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
