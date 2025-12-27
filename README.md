@@ -1,6 +1,7 @@
 # 🔗 URL Shortener
 
 <img width="1893" height="944" alt="image" src="https://github.com/user-attachments/assets/0c1eec83-8267-4458-8755-54517550808f" />
+
 A simple and clean URL Shortener web application built using **Flask** and **MySQL**.  
 Users can submit a long URL and receive a short URL that redirects to the original link.
 
@@ -130,5 +131,6 @@ http://localhost:5000
 
   ---
   Built with ❤️ by Sayani Das
+
 
 
