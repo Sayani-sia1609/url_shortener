@@ -12,8 +12,6 @@ This project demonstrates:
 - Real HTTP redirection
 
 ---
-# Peoject Live at : https://url-shortener-44uhy1rbb-codeguru1609s-projects.vercel.app/
----
 ## 🚀 Features
 
 - 🔹 Shorten long URLs
@@ -131,6 +129,7 @@ http://localhost:5000
 
   ---
   Built with ❤️ by Sayani Das
+
 
 
 
